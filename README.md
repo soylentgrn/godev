@@ -26,6 +26,7 @@ https://atlas.hashicorp.com/bento/
 2. Install `bundler` gem and use it to install other dependencies
 
     `gem install bundler`
+    
     `bundle install`
 
 3. Download puppet module described in Puppetfile
