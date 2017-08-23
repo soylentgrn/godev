@@ -5,8 +5,7 @@ https://atlas.hashicorp.com/bento/
 ## To build
 
 ***PREREQS***
-* VMware Fusion >= 6.0
-* Vagrant with Fusion Plugin
+* VMware Fusion >= 6.0 and Vagrant with Fusion Plugin unless using VirtualBox
 * Ruby
 
 ***Components Installed***
@@ -35,7 +34,8 @@ https://atlas.hashicorp.com/bento/
 
 4. Create and start the vagrant virtual machine
 
-   `vagrant up`
+   For Fusion run `vagrant up --provision`
+   For VirtualBox run `vagrant up --provision --provider=virtualbox`
 
 5. Run serverspec tests to make sure all the components properly installed and are running
 
