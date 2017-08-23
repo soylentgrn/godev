@@ -7,6 +7,7 @@ https://atlas.hashicorp.com/bento/
 ***PREREQS***
 * VMware Fusion >= 6.0
 * Vagrant with Fusion Plugin
+* Ruby
 
 ***Components Installed***
 * Zookeeper 3.4.5
@@ -22,8 +23,10 @@ https://atlas.hashicorp.com/bento/
    `export GH_USER=user%40domain.com`
    `export GH_PASS=github_password`   
 
-2. Install Gem Dependencies
+2. Install `bundler` gem and use it to install other dependencies
 
+    `gem install bundler`
+    
     `bundle install`
 
 3. Download puppet module described in Puppetfile
