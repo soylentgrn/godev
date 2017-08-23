@@ -1,5 +1,13 @@
 mkdir -p /home/vagrant/work/src/github.com/OVHUS
 cd ~/work/src/github.com/OVHUS/
+git config --global url."https://${GH_USER}:${GH_PASS}@github.com/".insteadOf "https://github.com/"
+
+if [ ! -d /home/vagrant/work/src/github.com/OVHUS/bender ]; then
+  echo 'performing a git clone on github.com/OVHUS/bender since /home/vagrant/work/src/github.com/OVHUS/bender does not exist'
+  git clone https://${GH_USER}:${GH_PASS}@github.com/OVHUS/bender /home/vagrant/work/src/github.com/OVHUS/bender
+fi
+go get -u github.com/OVHUS/bender
+
 if [ ! -d /home/vagrant/work/src/github.com/OVHUS/servicetemplate ]; then
   echo 'performing a git clone on github.com/OVHUS/servicetemplate since /home/vagrant/work/src/github.com/OVHUS/servicetemplate does not exist'
   git clone https://${GH_USER}:${GH_PASS}@github.com/OVHUS/servicetemplate /home/vagrant/work/src/github.com/OVHUS/servicetemplate
