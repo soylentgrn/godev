@@ -6,6 +6,14 @@ Vagrant.configure('2') do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
+
+  # Prefer VMware Fusion before VirtualBox
+  # This can be overridden when running `vagrant up` by using the
+  # the `--provider` parameter like the following:
+  # `vagrant up --provider=virtualbox`
+  config.vm.provider "vmware_fusion"
+  config.vm.provider "virtualbox"
+
   config.vm.box_download_insecure = true
   config.vm.synced_folder "work/", "/home/vagrant/work"
   config.vm.define :'go-dev-box' do |m|
@@ -30,6 +38,13 @@ Vagrant.configure('2') do |config|
       v.vmx['memsize'] = 8192
       v.vmx['numvcpus'] = 2
     end
+
+    config.vm.provider "virtualbox" do |v|
+#      v.gui = true
+      v.memory = 4096
+      v.cpus = 2
+    end
+
 
     # install puppet agent 1.3.4
     m.vm.provision :shell do |shell|
